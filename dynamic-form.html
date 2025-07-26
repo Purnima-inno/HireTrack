@@ -1,0 +1,212 @@
+<!-- <p>dynamic-form works!</p>
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Application' : 'Add Application' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div *ngFor="let field of schema.fields">
+      <mat-form-field appearance="fill" style="width: 100%;" *ngIf="['text', 'number', 'date'].includes(field.type)">
+        <mat-label>{{ field.label }} <span *ngIf="field.required" aria-label="required">*</span></mat-label>
+        <input
+          [type]="field.type === 'number' ? 'number' : (field.type === 'date' ? 'date' : 'text')"
+          [formControlName]="field.name"
+          [attr.min]="field.min"
+          [attr.max]="field.max"
+        />
+        <mat-error *ngIf="form.get(field.name)?.hasError('required')">This field is required</mat-error>
+        <mat-error *ngIf="form.get(field.name)?.hasError('minlength')">Minimum length not met</mat-error>
+        <mat-error *ngIf="form.get(field.name)?.hasError('maxlength')">Maximum length exceeded</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;" *ngIf="field.type === 'textarea'">
+        <mat-label>{{ field.label }}</mat-label>
+        <textarea matInput [formControlName]="field.name" rows="3"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;" *ngIf="field.type === 'select'">
+        <mat-label>{{ field.label }} <span *ngIf="field.required" aria-label="required">*</span></mat-label>
+        <mat-select [formControlName]="field.name">
+          <mat-option *ngFor="let option of field.options" [value]="option">{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-slider
+        *ngIf="field.type === 'slider'"
+        thumbLabel
+        tickInterval="1"
+        [min]="field.min"
+        [max]="field.max"
+        [formControlName]="field.name"
+      ></mat-slider>
+
+      <div class="rating" *ngIf="field.type === 'rating'">
+        <mat-label>{{ field.label }}</mat-label>
+        <mat-icon
+          *ngFor="let star of [].constructor(field.max); let i = index; trackBy: trackByIndex"
+          class="star"
+          [class.filled]="form.get(field.name)?.value > i"
+          (click)="form.get(field.name)?.setValue(i + 1)"
+          (keydown.enter)="form.get(field.name)?.setValue(i + 1)"
+          tabindex="0"
+          role="button"
+          aria-label="Set {{i + 1}} star rating"
+        >
+          star
+        </mat-icon>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()" tabindex="0" aria-label="Cancel">Cancel</button>
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="form.invalid || loading" aria-label="Submit">
+    {{ isEditMode ? 'Update' : 'Add' }}
+  </button>
+</mat-dialog-actions> -->
+
+
+<!-- <p>dynamic-form works!</p>
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Application' : 'Add Application' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div *ngFor="let field of schema.fields">
+      <mat-form-field appearance="fill" style="width: 100%;" *ngIf="['text', 'number', 'date'].includes(field.type)">
+        <mat-label>{{ field.label }} <span *ngIf="field.required" aria-label="required">*</span></mat-label>
+        <input
+          [type]="field.type === 'number' ? 'number' : (field.type === 'date' ? 'date' : 'text')"
+          [formControlName]="field.name"
+          [attr.min]="field.min"
+          [attr.max]="field.max"
+        />
+        <mat-error *ngIf="form.get(field.name)?.hasError('required')">This field is required</mat-error>
+        <mat-error *ngIf="form.get(field.name)?.hasError('minlength')">Minimum length not met</mat-error>
+        <mat-error *ngIf="form.get(field.name)?.hasError('maxlength')">Maximum length exceeded</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;" *ngIf="field.type === 'textarea'">
+        <mat-label>{{ field.label }}</mat-label>
+        <textarea matInput [formControlName]="field.name" rows="3"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;" *ngIf="field.type === 'select'">
+        <mat-label>{{ field.label }} <span *ngIf="field.required" aria-label="required">*</span></mat-label>
+        <mat-select [formControlName]="field.name">
+          <mat-option *ngFor="let option of field.options" [value]="option">{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-slider
+        *ngIf="field.type === 'slider'"
+        thumbLabel
+        tickInterval="1"
+        [min]="field.min"
+        [max]="field.max"
+        [formControlName]="field.name"
+      ></mat-slider>
+
+      <div class="rating" *ngIf="field.type === 'rating'">
+        <mat-label>{{ field.label }}</mat-label>
+        <mat-icon
+          *ngFor="let star of [].constructor(field.max); let i = index; trackBy: trackByIndex"
+          class="star"
+          [class.filled]="form.get(field.name)?.value > i"
+          (click)="form.get(field.name)?.setValue(i + 1)"
+          (keydown.enter)="form.get(field.name)?.setValue(i + 1)"
+          tabindex="0"
+          role="button"
+          [attr.aria-label]="'Set ' + (i + 1) + ' star rating'"
+        >
+          star
+        </mat-icon>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()" tabindex="0" aria-label="Cancel">Cancel</button>
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="form.invalid || loading" aria-label="Submit">
+    {{ isEditMode ? 'Update' : 'Add' }}
+  </button>
+</mat-dialog-actions> -->
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Application' : 'Add Application' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form-content">
+    <div *ngFor="let field of schema.fields; trackBy: trackByName" class="field-wrapper">
+
+      <!-- Date field with unique picker ref -->
+      <mat-form-field appearance="fill" class="full-width" *ngIf="field.type === 'date'">
+        <mat-label>{{ field.label }} <span *ngIf="field.required">*</span></mat-label>
+
+        <!-- Use a template ref variable #picker -->
+        <input matInput [matDatepicker]="picker" [formControlName]="field.name" readonly />
+
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+        <!-- Template ref variable -->
+        <mat-datepicker #picker></mat-datepicker>
+
+        <mat-error *ngIf="form.get(field.name)?.hasError('required')">Required</mat-error>
+        <mat-error *ngIf="form.get(field.name)?.hasError('matDatepickerParse')">Invalid date format</mat-error>
+      </mat-form-field>
+
+
+      <!-- Text/Number fields -->
+      <mat-form-field appearance="fill" class="full-width" *ngIf="['text','number'].includes(field.type)">
+        <mat-label>{{ field.label }} <span *ngIf="field.required">*</span></mat-label>
+        <input matInput [type]="field.type" [formControlName]="field.name" />
+        <mat-error *ngIf="form.get(field.name)?.hasError('required')">Required</mat-error>
+      </mat-form-field>
+
+      <!-- Textarea -->
+      <mat-form-field appearance="fill" class="full-width" *ngIf="field.type === 'textarea'">
+        <mat-label>{{ field.label }}</mat-label>
+        <textarea matInput [formControlName]="field.name" rows="3"></textarea>
+      </mat-form-field>
+
+      <!-- Select -->
+      <mat-form-field appearance="fill" class="full-width" *ngIf="field.type === 'select'">
+        <mat-label>{{ field.label }}</mat-label>
+        <mat-select [formControlName]="field.name">
+          <mat-option *ngFor="let opt of field.options" [value]="opt">{{ opt }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Slider -->
+      <mat-slider *ngIf="field.type === 'slider'" [min]="field.min" [max]="field.max">
+        <input matSliderThumb [formControl]="getFormControl(field.name)" />
+      </mat-slider>
+
+
+
+      <!-- Rating -->
+      <div class="rating" *ngIf="field.type === 'rating'">
+        <label>{{ field.label }}</label>
+        <mat-icon *ngFor="let i of [].constructor(field.max); let idx = index"
+          (click)="form.get(field.name)?.setValue(idx + 1)">
+          {{ form.get(field.name)?.value > idx ? 'star' : 'star_border' }}
+        </mat-icon>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="form.invalid || loading" (click)="submit()">
+    {{ isEditMode ? 'Update' : 'Add' }}
+  </button>
+</mat-dialog-actions>
+<!-- Debug form status -->
+<!-- <pre>{{ form.status }}</pre>
+<div *ngFor="let field of schema.fields">
+  <p>{{ field.name }}: {{ form.get(field.name)?.status }}</p>
+</div> -->

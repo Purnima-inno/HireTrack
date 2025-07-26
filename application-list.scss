@@ -1,0 +1,30 @@
+.application-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.status-badge {
+  color: white;
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-weight: 600;
+  min-width: 70px;
+  text-align: center;
+  font-size: 0.9em;
+  display: inline-block;
+}
+
+.star-yellow {
+  color: #ffc107;
+}
+
+.table-container {
+  margin-top: 20px;
+  overflow: auto;
+}
+
+.search-field {
+  width: 300px;
+  margin-bottom: 15px;
+}

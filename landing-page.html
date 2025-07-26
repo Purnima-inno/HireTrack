@@ -1,0 +1,81 @@
+<!-- <p>landing-page works!</p>
+<div class="landing-container" role="main" aria-label="Landing page">
+  <h1 class="hero-title">Handling Applications Made Easy</h1>
+  <p class="hero-subtitle">
+    Streamline your application management process with our intuitive platform
+  </p>
+  <button mat-raised-button color="primary" (click)="goToApplications()" aria-label="Get Started">Get Started</button>
+</div> -->
+<!-- <div class="landing-container" role="main" aria-label="Landing page">
+  <h1 class="hero-title">Handling Applications Made Easy</h1>
+  <p class="hero-subtitle">
+    Streamline your application management process with our intuitive platform.
+  </p>
+  <button mat-raised-button color="primary" (click)="goToApplications()" aria-label="Get Started">
+    Get Started
+  </button>
+</div> -->
+<main
+  class="min-h-screen flex items-center justify-center relative overflow-hidden"
+  role="main"
+  aria-label="Landing page"
+>
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-muted/30"></div>
+
+  <!-- Decorative blurred circles -->
+  <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+
+  <!-- Content container -->
+  <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <div class="space-y-8">
+
+      <!-- Main heading -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+        <span class="block text-foreground">Handling</span>
+        <span class="block bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+          Applications
+        </span>
+        <span class="block text-foreground">Made Easy</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        Streamline your application management process with our intuitive platform
+      </p>
+
+      <!-- Get Started Button -->
+      <div class="pt-8">
+        <button
+          mat-raised-button
+          color="primary"
+          class="text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          routerLink="/applications"
+          aria-label="Get Started"
+        >
+          <span class="flex items-center gap-3">
+            Get Started
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <!-- Feature Highlights -->
+      <section
+        class="pt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-muted-foreground"
+        aria-label="Key features"
+      >
+        <div *ngFor="let feature of features; index as i" class="flex flex-col items-center space-y-2">
+          <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+            <span class="text-primary" aria-hidden="true">✓</span>
+          </div>
+          <span>{{ feature }}</span>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>

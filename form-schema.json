@@ -1,0 +1,66 @@
+{
+  "fields": [
+    {
+      "label": "Full Name",
+      "name": "name",
+      "type": "text",
+      "required": true,
+      "validation": {
+        "minLength": 3,
+        "maxLength": 50
+      }
+    },
+    {
+      "label": "Job Title",
+      "name": "jobTitle",
+      "type": "text",
+      "required": true
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "select",
+      "options": ["Applied", "Interviewed"],
+      "required": true
+    },
+    {
+      "label": "Applied Date",
+      "name": "appliedDate",
+      "type": "date",
+      "required": true
+    },
+    {
+      "label": "Interview Date",
+      "name": "interviewDate",
+      "type": "date"
+    },
+    {
+      "label": "Feedback Score",
+      "name": "feedbackScore",
+      "type": "slider",
+      "min": 0,
+      "max": 10
+    },
+    {
+      "label": "Interview Feedback",
+      "name": "interviewFeedback",
+      "type": "textarea"
+    },
+    {
+      "label": "Salary Expectation",
+      "name": "salaryExpectation",
+      "type": "number"
+    },
+    {
+      "label": "Applicant Source",
+      "name": "applicantSource",
+      "type": "text"
+    },
+    {
+      "label": "Candidate Rating",
+      "name": "candidateRating",
+      "type": "rating",
+      "max": 5
+    }
+  ]
+}

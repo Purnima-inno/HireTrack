@@ -1,0 +1,21 @@
+{
+  "columns": [
+    { "def": "name", "label": "Name" },
+    { "def": "jobTitle", "label": "Job Title" },
+    { "def": "status", "label": "Status", "isBadge": true },
+    { "def": "appliedDate", "label": "Applied Date" },
+    { "def": "candidateRating", "label": "Rating", "isRating": true },
+    { "def": "actions", "label": "Actions", "isActions": true }
+  ],
+  "stats": [
+    { "title": "Total Applications", "field": "total" },
+    { "title": "Interviewed", "field": "byStatus", "status": "Interviewed" },
+    { "title": "Avg Rating", "field": "avgRating" }
+  ],
+  "statusColors": {
+    "Interviewed": "green",
+    "Pending": "orange",
+    "Rejected": "red"
+  },
+  "sources": ["LinkedIn", "Indeed", "Referral"]
+}

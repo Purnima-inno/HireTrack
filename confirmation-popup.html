@@ -1,0 +1,9 @@
+<p>confirmation-popup works!</p>
+<h2 mat-dialog-title>Delete Application</h2>
+<mat-dialog-content>
+  <p>Are you sure you want to delete the application for <strong>{{ data.name }}</strong>?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()" aria-label="Cancel">Cancel</button>
+  <button mat-raised-button color="warn" (click)="onConfirm()" aria-label="Confirm Delete">Delete</button>
+</mat-dialog-actions>

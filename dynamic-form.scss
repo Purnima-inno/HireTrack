@@ -1,0 +1,12 @@
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.full-width {
+  width: 100%;
+}
+.rating mat-icon {
+  cursor: pointer;
+  color: #ffb400;
+}

@@ -1,0 +1,128 @@
+:host {
+  display: block;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+.bg-gradient-to-br {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.blur-3xl {
+  filter: blur(64px);
+}
+
+.animate-pulse {
+  animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+h1 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.text-foreground {
+  color: #222222;
+}
+
+.text-muted-foreground {
+  color: #6b7280; /* Tailwind gray-500 */
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-transparent {
+  color: transparent;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.pt-12 {
+  padding-top: 3rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.sm\:grid-cols-3 {
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.space-y-2 > :not(template) ~ :not(template) {
+  margin-top: 0.5rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.bg-primary {
+  background-color: #2563eb; /* Tailwind blue-600 */
+  opacity: 0.1;
+}
+
+.text-primary {
+  color: #2563eb;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.5), 0 4px 6px -4px rgba(37, 99, 235, 0.5);
+}
+
